@@ -1,0 +1,10 @@
+delete from playeraction;
+ALTER SEQUENCE playeraction_pa_id_seq RESTART WITH 1;
+delete from matchobject;
+ALTER SEQUENCE matchobject_mo_id_seq RESTART WITH 1;
+delete from playermatch;
+ALTER SEQUENCE playermatch_pm_id_seq RESTART WITH 1;
+delete from player;
+ALTER SEQUENCE player_ply_id_seq RESTART WITH 1;
+delete from match;
+ALTER SEQUENCE match_mt_id_seq RESTART WITH 1;  
