@@ -1,11 +1,11 @@
-const BWIDTH = 200;
-const BHEIGHT = 200;
+const BWIDTH = 300;
+const BHEIGHT = 300;
 const BX = 400;
 const BY = 10;
 const CELLSX = 10;
 const CELLSY = 10;
 
-class Canvas {
+class Board {
     constructor(px,py,pd,ox,oy,od) {
         this.px = px;
         this.py = py;
@@ -17,6 +17,7 @@ class Canvas {
     draw() {
         stroke(100,100,200);
         fill(150,150,150);
+        
         let cellW = BWIDTH / CELLSX;
         let cellH = BHEIGHT / CELLSY; 
         for (let cx=0; cx < CELLSX; cx++)
@@ -29,9 +30,8 @@ class Canvas {
         circle(BX+this.px*cellW+cellW/2,BY+this.py*cellH+cellH/2,cellW-2,cellH-2);
         fill(200,0,0);
         circle(BX+this.ox*cellW+cellW/2,BY+this.oy*cellH+cellH/2,cellW-2,cellH-2);
-        fill(255,255,255) 
+        fill(255,255,255);
         text(this.pd,BX+this.px*cellW+cellW/2,BY+this.py*cellH+cellH/2);
         text(this.od,BX+this.ox*cellW+cellW/2,BY+this.oy*cellH+cellH/2);
-                  
     }
 }

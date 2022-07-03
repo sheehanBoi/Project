@@ -29,5 +29,4 @@ class Action {
             this.callback(this.id);
         }
     }
-
 }

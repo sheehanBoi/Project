@@ -130,12 +130,40 @@ function executeMove(player, move) {
             if (player.pm_x != 9) player.pm_x++; 
             player.pm_extra = "E";
             break;
+        case "Up Left":
+            if (player.pm_y != 0 && player.pm_x != 0){
+                player.pm_x--; 
+                player.pm_y--;
+            }  
+            player.pm_extra = "NW";
+            break;
+        case "Up Right":
+            if (player.pm_y != 0 && player.pm_x != 9){
+                player.pm_x++; 
+                player.pm_y--;
+            }  
+            player.pm_extra = "NE";
+            break;
+        case "Down Left":
+            if (player.pm_y != 9 && player.pm_x != 0){
+                player.pm_x--; 
+                player.pm_y++;
+            }  
+            player.pm_extra = "SW";
+            break;
+        case "Down Right":
+            if (player.pm_y != 9 && player.pm_x != 9){
+                player.pm_x++; 
+                player.pm_y++;
+            }  
+            player.pm_extra = "SE";
+            break;
     }
 }
 
 
 async function insertRandomAction(pmId) {
-    let actions =["Left", "Right", "Up", "Down"];
+    let actions =["Left", "Right", "Up", "Down", "Up Left", "Up Right", "Down Left", "Down Right"];
     let randAct = actions[ Math.floor(Math.random()*actions.length)];
     let sql = `Insert into playeraction(pa_pm_id,pa_name,pa_state)
                 values ($1,$2,'Hand')`;
