@@ -7,6 +7,8 @@ var logger = require('morgan');
 
 var matchesRouter = require('./routes/matchesRoutes');
 var actionsRouter = require('./routes/actionsRoutes');
+var obstaclesRouter = require('./routes/obstacleRoutes');
+
 
 var app = express();
 
@@ -18,5 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/matches', matchesRouter);
 app.use('/api/playeractions', actionsRouter);
+app.use('/api/obstacles', obstaclesRouter);
+
 
 module.exports = app;

@@ -8,6 +8,7 @@ var scoreBoard;
 var player;
 var opponent;
 var board;
+var obstaclesInfo = [];
 var actions = [ ];
 
 var startingTurn = false;
@@ -30,9 +31,12 @@ async function runAction (id) {
 
 async function updateStates() {
     player = await requestPlayerMatchInfo(playerMatchId);
-    opponent = await requestPlayerMatchInfo(opponentMatchId);
+    opponent = await requestPlayerMatchInfo(opponentMatchId);   
+    obstaclesInfo = await requestObstacles(playerMatchId);
     scoreBoard = new ScoreBoard(player.ply_name, opponent.ply_name, player.pm_count, opponent.pm_count, player.pm_state, opponent.pm_state); 
-    board = new Board(player.pm_x,player.pm_y,player.pm_extra, opponent.pm_x, opponent.pm_y,opponent.pm_extra);
+    
+    board = new Board(player.pm_x,player.pm_y,player.pm_extra, opponent.pm_x, opponent.pm_y,opponent.pm_extra, obstaclesInfo);
+    
     let actionsInfo = await requestPlayerActions(playerMatchId);
     actions = [];
     let count = 0;

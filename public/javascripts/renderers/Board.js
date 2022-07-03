@@ -6,13 +6,14 @@ const CELLSX = 10;
 const CELLSY = 10;
 
 class Board {
-    constructor(px,py,pd,ox,oy,od) {
+    constructor(px,py,pd,ox,oy,od,obs) {
         this.px = px;
         this.py = py;
         this.pd = pd;
         this.ox = ox;
         this.oy = oy;
         this.od = od;
+        this.obs = obs;
     }
     draw() {
         stroke(100,100,200);
@@ -33,5 +34,10 @@ class Board {
         fill(255,255,255);
         text(this.pd,BX+this.px*cellW+cellW/2,BY+this.py*cellH+cellH/2);
         text(this.od,BX+this.ox*cellW+cellW/2,BY+this.oy*cellH+cellH/2);
+
+        fill("black");        
+        for(let i = 0; i < this.obs.length; i++){
+            square(boardX + this.obs[i].mo_x * cellW + cellW/2, boardY + this.obs[i].mo_y * cellH + cellH/2, cellW - 2, cellH - 2);
+        }
     }
 }

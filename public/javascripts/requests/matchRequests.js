@@ -1,4 +1,3 @@
-
 async function requestPlayerMatchInfo(pmId) {
     try {
         const response = await fetch(`/api/matches/playermatches/${pmId}`);
